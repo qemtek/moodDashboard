@@ -40,7 +40,7 @@ def save_mood_data(n_clicks, name, mood_score):
     if n_clicks > 0 and name is not None and mood_score is not None:
         current_date = datetime.now().date()
         df = pd.concat([df, pd.DataFrame({'Name': name, 'Date': current_date, 'Mood': mood_score}, index=[len(df)])])
-        df = df.drop_duplicates(keep="last")
+        df = df.loc[df[['Date', 'Name']].drop_duplicates(keep="last").index, :]
         df.to_csv('moods.csv', index=False)
         return f'Mood data submitted successfully for {name} on {current_date}'
     return ''
