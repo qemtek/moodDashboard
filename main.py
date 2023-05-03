@@ -9,7 +9,7 @@ from datetime import datetime
 app = dash.Dash(__name__)
 server = app.server
 
-people = ['Alice', 'Bob', 'Charlie', 'David']
+people = ['Chris', 'Sam', 'Ella', 'Lee', 'Will', 'James', 'Jahnavi', 'Tom', 'Mike S', 'Mike G', 'Jamie']
 
 df = pd.DataFrame(columns=['Name', 'Date', 'Mood'])
 
