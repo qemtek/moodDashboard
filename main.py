@@ -9,7 +9,7 @@ from datetime import datetime
 app = dash.Dash(__name__)
 server = app.server
 
-people = ['Chris', 'Sam', 'Ella', 'Lee', 'Will', 'James', 'Jahnavi', 'Tom', 'Mike S', 'Mike G', 'Jamie']
+people = ['Chris', 'Sam', 'Ella', 'Lee', 'Will', 'James', 'Jahnavi', 'Tom', 'Mike S', 'Mike G', 'Jamie', 'Shaun', 'Krupen', "Kam"]
 
 df = pd.DataFrame(columns=['Name', 'Date', 'Mood'])
 
@@ -41,6 +41,7 @@ def save_mood_data(n_clicks, name, mood_score):
         current_date = datetime.now().date()
         df = pd.concat([df, pd.DataFrame({'Name': name, 'Date': current_date, 'Mood': mood_score}, index=[len(df)])])
         df = df.drop_duplicates(keep="last")
+        df.to_csv('moods.csv', index=False)
         return f'Mood data submitted successfully for {name} on {current_date}'
     return ''
 
