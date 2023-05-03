@@ -52,9 +52,9 @@ def save_mood_data(n_clicks, name, mood_score):
 )
 def update_graph(n_clicks):
     if not df.empty:
-        fig = px.line(df, x='Date', y='Mood', color='Name', markers=True, title='Mood Over Time')
+        fig = px.line(df, x='Date', y='Mood', color='Name', markers=True, title='Mood Over Time', height=600)
         return fig
-    return px.line(title='Mood Over Time')
+    return px.line(title='Mood Over Time', height=700)
 
 
 if __name__ == '__main__':
